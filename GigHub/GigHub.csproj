@@ -228,6 +228,10 @@
     <Compile Include="Migrations\201706042251441_populategenretable.Designer.cs">
       <DependentUpon>201706042251441_populategenretable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706042343232_addforeignkeypropety.cs" />
+    <Compile Include="Migrations\201706042343232_addforeignkeypropety.Designer.cs">
+      <DependentUpon>201706042343232_addforeignkeypropety.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -322,6 +326,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706042251441_populategenretable.resx">
       <DependentUpon>201706042251441_populategenretable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706042343232_addforeignkeypropety.resx">
+      <DependentUpon>201706042343232_addforeignkeypropety.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
