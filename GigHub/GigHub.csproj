@@ -223,6 +223,10 @@
     <Compile Include="Migrations\201706042241522_Overrideconventionforgigandgenre.Designer.cs">
       <DependentUpon>201706042241522_Overrideconventionforgigandgenre.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706042251441_populategenretable.cs" />
+    <Compile Include="Migrations\201706042251441_populategenretable.Designer.cs">
+      <DependentUpon>201706042251441_populategenretable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -312,6 +316,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706042241522_Overrideconventionforgigandgenre.resx">
       <DependentUpon>201706042241522_Overrideconventionforgigandgenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706042251441_populategenretable.resx">
+      <DependentUpon>201706042251441_populategenretable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
