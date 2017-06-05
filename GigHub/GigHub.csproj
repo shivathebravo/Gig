@@ -232,6 +232,14 @@
     <Compile Include="Migrations\201706042343232_addforeignkeypropety.Designer.cs">
       <DependentUpon>201706042343232_addforeignkeypropety.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706050201140_ADDED FIELD.cs" />
+    <Compile Include="Migrations\201706050201140_ADDED FIELD.Designer.cs">
+      <DependentUpon>201706050201140_ADDED FIELD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706050214217_add name.cs" />
+    <Compile Include="Migrations\201706050214217_add name.Designer.cs">
+      <DependentUpon>201706050214217_add name.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -242,6 +250,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\FutureDate.cs" />
+    <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Compile Include="ViewModels\ValidTime.cs" />
     <Compile Include="ViewModels\GigFormViewModel.cs" />
   </ItemGroup>
@@ -331,6 +340,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706042343232_addforeignkeypropety.resx">
       <DependentUpon>201706042343232_addforeignkeypropety.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706050201140_ADDED FIELD.resx">
+      <DependentUpon>201706050201140_ADDED FIELD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706050214217_add name.resx">
+      <DependentUpon>201706050214217_add name.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
