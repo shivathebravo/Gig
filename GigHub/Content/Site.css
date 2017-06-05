@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 50px;
+    padding-top: 90px;
     padding-bottom: 20px;
 }
 
@@ -31,13 +31,13 @@ textarea {
     border-color: #ff4342;
 }
 
-.navbar-inverse .navbar-nav >li>a {
-    color: #fff;
-}
+    .navbar-inverse .navbar-nav > li > a {
+        color: #fff;
+    }
 
-.navbar-inverse .navbar-brand {
-    color: #fff;  
-} 
+    .navbar-inverse .navbar-brand {
+        color: #fff;
+    }
 
 .navbar-brand {
     font-weight: 700;
@@ -54,6 +54,7 @@ span.field-validation-error {
 body {
     font-size: 17px;
 }
+
 body,
 h1,
 h2,
@@ -67,13 +68,13 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: Lato,"Helvetica Neue", Helvetica, Arial, sans-serif;
- 
+    font-family: Lato,"Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .form-group {
     margin-bottom: 20px;
 }
+
 .form-control {
     font-size: 17px;
     padding: 20px 15px;
@@ -81,11 +82,11 @@ h6,
     border-radius: 9px;
 }
 
-.form-control:focus {
-    border-color: #2196f3;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-}
+    .form-control:focus {
+        border-color: #2196f3;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
 
 .btn {
     font-size: 17px;
@@ -94,3 +95,50 @@ h6,
     border-radius: 9px;
 }
 
+/* page-level styles*/
+.gigs {
+    list-style: none;
+}
+
+    .gigs > li {
+        position: relative;
+        margin-bottom: 30px;
+    }
+
+        .gigs >li .date {
+            background: red;
+            color: #fff;
+            text-align: center;
+            width: 60px;
+            -ms-border-radius: 8px;
+            border-radius: 8px;
+        }
+
+            .gigs > li .date .month {
+                text-transform: uppercase;
+                font-size: 14px;
+                font-weight: bold;
+                padding: 2px 6px;
+            }
+
+            .gigs > li .date .day {
+                background: #f7f7f7;
+                color: #333;
+                font-size: 20px;
+                padding: 6px 12px;
+            }
+
+        .gigs > li > .details {
+            position: absolute;
+            top: 0px;
+            left: 70px;
+        }
+
+        .gigs > li .details .artist {
+            font-weight: bold;
+            display: block;
+        }
+
+        .gigs > li .details .genre {
+            font-size: 15px;
+        }
