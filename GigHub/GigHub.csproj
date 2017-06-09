@@ -209,12 +209,24 @@
     <Compile Include="Controllers\Api\AttendancesController.cs" />
     <Compile Include="Controllers\Api\FollowingsController.cs" />
     <Compile Include="Controllers\Api\GigsController.cs" />
+    <Compile Include="Controllers\Api\NotificationController.cs" />
     <Compile Include="Controllers\GigsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Dtos\GenreDto.cs" />
+    <Compile Include="Dtos\GigDto.cs" />
+    <Compile Include="Dtos\NotificationDto.cs" />
+    <Compile Include="Dtos\UserDto.cs" />
     <Compile Include="Migrations\201706090119185_add is CanceledToGig.cs" />
     <Compile Include="Migrations\201706090119185_add is CanceledToGig.Designer.cs">
       <DependentUpon>201706090119185_add is CanceledToGig.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706090344440_addnotification.cs" />
+    <Compile Include="Migrations\201706090344440_addnotification.Designer.cs">
+      <DependentUpon>201706090344440_addnotification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Nofification.cs" />
+    <Compile Include="Models\NotificationType.cs" />
+    <Compile Include="Models\UserNotification.cs" />
     <Compile Include="ViewModels\GigsViewModel.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Dtos\AttendanceDto.cs" />
@@ -377,6 +389,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706090119185_add is CanceledToGig.resx">
       <DependentUpon>201706090119185_add is CanceledToGig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706090344440_addnotification.resx">
+      <DependentUpon>201706090344440_addnotification.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
