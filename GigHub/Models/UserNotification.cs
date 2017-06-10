@@ -29,5 +29,10 @@ namespace GigHub.Models
             Notification = notification;
         }
 
+        public void Read()
+        {
+            IsRead = true;
+        }
+
     }
 }

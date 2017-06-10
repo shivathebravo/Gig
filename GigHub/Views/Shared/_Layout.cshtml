@@ -24,7 +24,7 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Add a Gig", "Create", "Gigs")</li>
-  
+
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -38,28 +38,55 @@
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/lib")
     @RenderSection("scripts", required: false)
-<script>
-    $(function() {
+<script type="text/x-template" id="notifications-template">
+        <ul class="notifications">
+            <%_.each(notifications, function(notification){
+            if(notification.type==1){ %>
+            <li><%= notification.gig.artist.name %>Artist has canceled the gig  at <%= notification.gig.venue %> at <%= moment(notification.gig.dateTime).format("D MMM HH:mm") %>.</li>
+            <%}
+            })
+            %>
+          
+           
+        </ul>
 
-        $.getJSON("/api/notifications",
-            function(notifications) {
-                $(".js-notifications-count")
-                    .text(notifications.length)
-                    .removeClass("hide");
-            });
-        $(".notifications").popover({
-            html: true,
-            title: "Notifications",
-            content:function() {
-                return "Hello World";
-            },
-            placement:"bottom"
+    </script>
+    <script>
+        $(function () {
+
+            $.getJSON("/api/notifications",
+                function (notifications) {
+                    if (notifications === 0) return;
+                    $(".js-notifications-count")
+                        .text(notifications.length)
+                        .removeClass("hide")
+                        .addClass("animate bounceInDown");
+
+                    $(".notifications").popover({
+                        html: true,
+                        title: "Notifications",
+                        content: function() {
+                            var complied = _.template($("#notifications-template").html());
+                            return complied({ notifications: notifications });
+                        },
+                        placement: "bottom",
+                        template:
+                            '<div class="popover popover-notifications" role="tooltip"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
+                    }).on("shown.bs.popover",
+                        function() {
+                            $.post("/api/notifications/markAsRead")
+                                .done(function() {
+                                    $(".js-notifications-count")
+                                        .text("")
+                                        .addClass("hide");
+                                });
+                        });
+                });
+
+
         });
-
-    });
-</script>
+    </script>
 </body>
 </html>

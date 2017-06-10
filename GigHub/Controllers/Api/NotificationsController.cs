@@ -9,17 +9,17 @@ using System.Web.Http;
 namespace GigHub.Controllers.Api
 {
 
-    [Authorize]
-    public class NotificationController : ApiController
-    {
-        private ApplicationDbContext _context;
 
-        public NotificationController()
+    // [Authorize]
+    public class NotificationsController : ApiController
+    {
+        private readonly ApplicationDbContext _context;
+
+        public NotificationsController()
         {
             _context = new ApplicationDbContext();
         }
         [HttpGet]
-
         public IEnumerable<NotificationDto> GetNewNotifications()
         {
             var userId = User.Identity.GetUserId();
@@ -52,6 +52,16 @@ namespace GigHub.Controllers.Api
 
         }
 
+        [HttpPost]
+        public IHttpActionResult MarkAsRead()
+        {
+            var userId = User.Identity.GetUserId();
+            var notification = _context.UserNotifications.Where(un => un.UserId == userId && !un.IsRead).ToList();
+            notification.ForEach(n => n.Read());
+            _context.SaveChanges();
+            return Ok();
 
+
+        }
     }
 }
