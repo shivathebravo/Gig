@@ -1,4 +1,6 @@
-﻿@using GigHub.Controllers
+﻿@using Antlr.Runtime.Tree
+@using GigHub.Controllers
+@using GigHub.Models
 @model GigHub.ViewModels.GigsViewModel
 
 
@@ -7,7 +9,7 @@
 {
     <div class="form-group">
         <div id="searchGigs" class="input-group" style="width: 300px;">
-            @Html.TextBoxFor(m => m.SearchTerm, new {@class = "form-control"})
+            @Html.TextBoxFor(m => m.SearchTerm, new { @class = "form-control" })
             <span class="input-group-addon">
                 <i class="glyphicon glyphicon-search"></i>
 
@@ -19,7 +21,7 @@
 
     </div>
 }
-<ul class="gigs voffset4">
+<ul id="gigs" class="gigs offset4">
     @foreach (var gig in Model.UpComingGigs)
     {
         <li>
@@ -33,13 +35,17 @@
             </div>
             <div class="details">
                 <span class="artist">
-                    @gig.Artist.Name
+
+                    <a href="@Url.Action("Detail", "Gigs", new {id=gig.Id})">
+                        @gig.Artist.Name
+                    </a>
+
                     @if (gig.IsCanceled)
-                    {
-                        <span class="label label-warning ">Cancelled</span>
+                {
+                        <span class="label label-warning">Cancelled</span>
                     }
                     @if (Model.ShowActions)
-                    {
+                {
                         <button data-user-id="@gig.ArtistId" class="btn btn-link btn-sm pull-right js-toggle-follow">Following ?</button>
                     }
                 </span>
@@ -48,7 +54,7 @@
                 </span>
                 @if (Model.ShowActions && !gig.IsCanceled)
                 {
-                    <button data-gig-id="@gig.Id" class="btn btn-default btn-sm pull-right js-toggle-attendance">Going ?</button>
+                    <button data-gig-id="@gig.Id" class="btn @(Model.Attendances.Contains(gig.Id)? "btn-info":"btn-default") btn-sm pull-right js-toggle-attendance">Going ?</button>
                 }
             </div>
 
@@ -59,35 +65,6 @@
 @section scripts{
     <script>
 
-        $(function () {
-
-            $(".js-toggle-attendance").click(function (e) {
-
-                var button = $(e.target);
-                $.post("api/attendances", { gigId: button.attr("data-gig-id") })
-
-            .done(function () {
-                button
-                    .removeClass("btn-default")
-                    .addClass("btn-info").text("Going");
-            }).fail(function () {
-                alert("Something wrong");
-            });
-            });
-
-
-
-            $(".js-toggle-follow").click(function (e) {
-
-                var button = $(e.target);
-                $.post("/api/followings", { followeeId: button.attr("data-user-id") })
-
-            .done(function () {
-                button.text("Following");
-            }).fail(function () {
-                alert("Something wrong");
-            });
-            });
-        });
+        GigsController.init("#gigs");
     </script>
 }
